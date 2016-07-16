@@ -1,0 +1,11 @@
+django==1.8.3
+django-tinymce==2.0.6
+django-allauth==0.24.1
+sorl-thumbnail==12.3
+Pillow==3.1.0
+
+# for testing
+requests==2.10.0
+selenium==2.53.5
+
+

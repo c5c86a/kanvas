@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <title>Business models</title>
+    <script src="/static/kanvas/js/canvas_list-michaelsoriano.js"></script>
+    <script src="/static/kanvas/js/canvas_list-michaelsoriano.js"></script>
+    <link rel="stylesheet" href="/static/kanvas/css/canvas_list-michaelsoriano.css">
+    <link href="/static/kanvas/css/custom.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% load thumbnail %}
+    <div class="row" style="text-align:center; border-bottom:1px dashed #ccc; padding:0 0 20px 0; margin-bottom:40px;">
+        <div class="col-md-12" style="margin-top:10px;">
+          <div class="row">
+            <div class="col-md-6 text-left">
+              <div class="col-md-12">Welcome! Create your canvas</div>
+            </div>
+            <div class="col-md-6 text-right">
+              <div class="col-md-12">
+                <a class="btn btn-primary" href="/canvas/add">New canvas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="row first">
+            {% for canvas in object_list %}
+            <!--
+                if you add the class bspHasModal below, then add also the following javascript
+                $('ul.first').bsPhotoGallery({
+                  "classes" : "col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12",
+                  "hasModal" : true
+                });
+                -->
+                <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12" data-bsp-li-index="0">
+                    <!-- {% if canvas.logo %}-->
+                    <a href="/canvas/{{ canvas.id }}">
+                        <!--
+                        400 is stored by the solr-thumbnail
+                        and is big enough to be resized down by the browser due to '.img-responsive'
+                        network usage here can be optimized
+                        -->
+                        {% thumbnail canvas.logo "400x400" as im %}
+                            <img class="img-responsive" src="{{ im.url }}">
+                        {% endthumbnail %}
+                    </a>
+                    <!-- {% endif %} -->
+                    <div class="text">
+                      <div class="section">
+                        <h3 style="padding: 0px; margin: 0px;">{{ canvas.company }}</h3>
+                      </div>
+                      <div class="section">
+                          <a href="/canvas/{{ canvas.id }}">
+                              view canvas of {{ canvas.originalauthor}}
+                          </a>
+                      </div>
+                      <div class="section text-right">
+                          <!-- TODO: https://github.com/linkfloyd/qhonuskan-votes -->
+                          <button type="button"
+                                  class="btn btn-success glyphicon glyphicon-thumbs-up"
+                                  data-canvas-id="{{ canvas.id }}">{{ canvas.upvotes}}</button>
+                          <button type="button"
+                                  class="btn btn-success glyphicon glyphicon-thumbs-down"
+                                  data-canvas-id="{{ canvas.id }}">{{ canvas.downvotes}}</button>
+                      </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

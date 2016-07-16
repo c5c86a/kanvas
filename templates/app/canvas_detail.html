@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <title>{{ object.company }}</title>
+  <link href="/static/kanvas/css/canvas_detail-desireco.css" rel="stylesheet">
+  <link href="/static/kanvas/css/custom.css" rel="stylesheet">
+  <script src="/static/kanvas/js/canvas_detail-desireco.js"></script>
+{% endblock %}
+
+{% block content %}
+  <h3>{{ object.company }} made by {{ object.originalauthor }}</h3>
+      <table id="bizcanvas" cellspacing="0" border="1">
+        <!-- Upper part -->
+        <tbody>
+          <tr>
+            <td colspan="2" rowspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/partners">{% endif %}
+                Key Partners
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.partners | safe }}</div>
+            </td>
+            <td colspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/activities">{% endif %}
+              Key Activities
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.activities | safe }}</div>
+            </td>
+            <td colspan="2" rowspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/value_propositions">{% endif %}
+              Value Proposition
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.value_propositions | safe }}</div>
+            </td>
+            <td colspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/relationships">{% endif %}
+              Customer Relationship</a>
+              <div class="acefield">{{ object.relationships | safe }}</div>
+            </td>
+            <td colspan="2" rowspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/customer_segments">{% endif %}
+              Customer Segments
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.customer_segments | safe }}</div>
+            </td>
+          </tr>
+          <!-- Lower part -->
+          <tr>
+            <td colspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/resources">{% endif %}
+              Key Resources
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.resources | safe }}</div>
+            </td>
+            <td colspan="2">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/channels">{% endif %}
+              Key Channels
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.channels | safe }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/cost">{% endif %}
+              Cost Structure
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.cost | safe }}</div>
+            </td>
+            <td colspan="5">
+              {% if object.originalauthor == request.user %}<a href="/canvas/{{ canvas.id }}/revenue">{% endif %}
+              Revenue Streams
+              {% if object.originalauthor == request.user %}</a>{% endif %}
+              <div class="acefield">{{ object.revenue | safe }}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col-md-12" style="margin-top:10px;">
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <a href="/company/{{ canvas.id }}/" class="btn btn-primary">More info</a>
+          </div>
+          <div class="col-md-6 text-right">
+            <div class="col-md-12">
+              {% if object.originalauthor == request.user %}
+                <a href="/canvas/{{ canvas.id }}/delete" class="btn btn-primary">Delete</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

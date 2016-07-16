@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <title>{{ obj.company }}</title>
+{% endblock %}
+
+{% block content %}
+    {% load thumbnail %}
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="margin-top:10px;">
+            <ul class="media-list">
+              <li class="media col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12">
+                  <a class="pull-left" href="/canvas/{{ obj.id }}/logo">
+                      {% if obj.logo %}
+                        {% thumbnail obj.logo "400x400" as im %}
+                            <img class="img-responsive" src="{{ im.url }}">
+                        {% endthumbnail %}
+                      {% else %}
+                        Insert logo
+                      {% endif %}
+                  </a>
+                <!-- might remove hegith and width -->
+                <div class="media-body">
+                  <h3 class="media-heading">{{ obj.company }}</h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- starts block content -->
+        {% if obj.originalauthor == request.user %}<a href="/canvas/{{ obj.id }}/description">{% endif %}
+            <h4>Description</h4>
+        {% if obj.originalauthor == request.user %}</a>{% endif %}
+        <div class="acefield">{{ obj.description | safe }}</div>
+        {% if obj.originalauthor == request.user %}<a href="/canvas/{{ obj.id }}/products">{% endif %}
+            <h4>Products</h4>
+        {% if obj.originalauthor == request.user %}</a>{% endif %}
+        <div class="acefield">{{ obj.products | safe }}</div>
+        {% if obj.originalauthor == request.user %}<a href="/canvas/{{ obj.id }}/links">{% endif %}
+            <h4>Links</h4>
+        {% if obj.originalauthor == request.user %}</a>{% endif %}
+        <div class="acefield">{{ obj.links | safe }}</div>
+      <!-- stops block content -->
+    </div>
+{% endblock %}
+
