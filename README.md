@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/nickmeet/bmc.png?branch=master)](https://travis-ci.org/nickmeet/bmc)
+[![Travis build status](https://travis-ci.org/nickmeet/kanvas.png?branch=master)](https://travis-ci.org/nickmeet/kanvas)
 
 #### Manual actions
 

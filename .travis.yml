@@ -8,9 +8,7 @@ install:
 script: python -m unittest discover tests
 cache:
   directories:
-    - $HOME/.cache/pip
+  - "$HOME/.cache/pip"
 before_install:
-- openssl aes-256-cbc -K $encrypted_66b3a3b4d7ff_key -iv $encrypted_66b3a3b4d7ff_iv
+- openssl aes-256-cbc -K $encrypted_aefc2de4faf5_key -iv $encrypted_aefc2de4faf5_iv
   -in deploy_key.enc -out deploy_key -d
-
-
