@@ -59,6 +59,6 @@ class TestSite(unittest.TestCase):
     def test_site_content(self):
         self.browser.load("http://localhost:8000")
         message = self.browser.locate("login id").text
-        assert message == 'Login', message
+        assert message == 'Login',  message
 
 
