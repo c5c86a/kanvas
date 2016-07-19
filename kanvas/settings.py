@@ -133,7 +133,7 @@ USE_L10N = True
 USE_TZ = True
 
 # folder of uploaded files
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'data', 'media')
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../data/media'))
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
