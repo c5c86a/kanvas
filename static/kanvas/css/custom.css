@@ -1,0 +1,26 @@
+/** for app/canvas_list.html */
+form table tr th {
+  text-align: left;
+}
+.responsive-image {
+  max-width:100%;
+  height:auto;
+}
+/** for app/canvas_detail.html */
+BODY {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* for consistency: overwrites font-family of canvas_detail in order to be the same as in bootstrap */
+#bizcanvas {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+#bizcanvas tbody tr td:hover {
+  background-color: #ffff99;
+}
+/** the above prevents horizontal scrolling */
+#bizcanvas td {
+  height: 100px;
+}
+/** the above prevents vertical scrolling at empty canvas */
+
