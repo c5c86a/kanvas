@@ -19,10 +19,15 @@ def get(url):
     return response
 
 def start_django():
-    copy('parent_unversioned_folder/db.sqlite3', '../data/db')
-    copytree('parent_unversioned_folder/media', '../data')
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    copy(os.path.join(BASE_DIR, 'parent_unversioned_folder/db.sqlite3'), os.path.join(BASE_DIR, '../data/db'))
+    dest = os.path.join(BASE_DIR, '../data')
+    if os.listdir(dest) == []: 
+        copytree(os.path.join(BASE_DIR, 'parent_unversioned_folder/media'), dest)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kanvas.settings")
     django.setup()
+    call_command('makemigrations')
+    call_command('migrate')
     call_command('runserver', use_reloader=False)
 
 def singleton(cls):
