@@ -23,5 +23,5 @@ EXPOSE 8085
 
 RUN pip install -q -r requirements.txt
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/site/project/entrypoint.sh"]
 
