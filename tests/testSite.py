@@ -19,8 +19,8 @@ def get(url):
     return response
 
 def start_django():
-    copy('db.sqlite3', '../data/db')
-    copytree('media', '../data/media')
+    copy('parent_unversioned_folder/db.sqlite3', '../data/db')
+    copytree('parent_unversioned_folder/media', '../data')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kanvas.settings")
     django.setup()
     call_command('runserver', use_reloader=False)
