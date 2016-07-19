@@ -23,5 +23,5 @@ EXPOSE 80
 
 RUN pip install -q -r requirements.txt
 
-ENTRYPOINT ["/kanvas/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 
