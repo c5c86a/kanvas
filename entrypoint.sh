@@ -1,8 +1,8 @@
 #!/bin/sh
 #
 
-cp -R media ../data/media
-cp db.sqlite3 ../data/db
+cp -R parent_unversioned_folder/media ../data/
+cp parent_unversioned_folder/db.sqlite3 ../data/db
 
 export COLLECT=True
 python manage.py collectstatic --noinput
