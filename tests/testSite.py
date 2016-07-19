@@ -3,6 +3,7 @@ import os
 from django.core.management import call_command
 import django
 from time import sleep
+from shutil import copy, copytree
 
 import unittest
 import requests
@@ -18,6 +19,8 @@ def get(url):
     return response
 
 def start_django():
+    copy('db.sqlite3', '../data/db')
+    copytree('media', '../data/media')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kanvas.settings")
     django.setup()
     call_command('runserver', use_reloader=False)

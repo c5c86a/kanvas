@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'kanvas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(os.path.dirname(BASE_DIR), 'data', 'db', 'db.sqlite3'),
     }
 }
 
@@ -133,7 +133,7 @@ USE_L10N = True
 USE_TZ = True
 
 # folder of uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'data', 'media')
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
@@ -152,11 +152,11 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = True
 
 # for singup
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'maria.palai.ntua@gmail.com'
-EMAIL_HOST_PASSWORD = 'panteleimonas'
-EMAIL_PORT = 587
-EMAIL_SUBJECT_PREFIX='EPU NTUA'
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'maria.palai.ntua@gmail.com'
+#EMAIL_HOST_PASSWORD = 'panteleimonas'
+#EMAIL_PORT = 587
+#EMAIL_SUBJECT_PREFIX='EPU NTUA'
 
 
