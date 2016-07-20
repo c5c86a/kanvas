@@ -9,7 +9,8 @@ RUN apt-get update -qq && apt-get install -qqy \
 		gcc build-essential \
 		sqlite3 libjpeg-dev zlib1g-dev \
 		python python-pip python2.7-dev python-imaging \
-	--no-install-recommends && rm -rf /var/lib/apt/lists/* 
+    libfontconfig:i386 libfreetype6:i386 \
+	  --no-install-recommends && rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /site
 RUN mkdir /site/data
