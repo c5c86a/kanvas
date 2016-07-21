@@ -10,7 +10,7 @@ RUN apt-get update -qq && apt-get install -qqy \
 		sqlite3 libjpeg-dev zlib1g-dev \
 		python python-pip python2.7-dev python-imaging \
     `# phantomjs is a run-time dependency and its runtime dependencies are below (some of them might be compile-time dependencies)` \
-    libfontconfig1-dev=2.11.0-0ubuntu4.1 libfreetype6-dev=2.5.2-1ubuntu2.5 libssl-dev=1.0.1f-1ubuntu2.19 libpng12-dev=1.2.50-1ubuntu2.14.04.2 \
+    libfontconfig1-dev libfreetype6-dev libssl-dev libpng12-dev \
     	  --no-install-recommends && rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /site
