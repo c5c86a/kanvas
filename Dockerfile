@@ -21,7 +21,7 @@ RUN mkdir /site/project
 VOLUME ["/site/data"]
 COPY . /site/project
 WORKDIR /site/project
-EXPOSE 8000
+EXPOSE 9000
 
 RUN pip install -q -r requirements.txt
 
