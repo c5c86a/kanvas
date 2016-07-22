@@ -54,18 +54,21 @@ class Surf:
 class TestSite(unittest.TestCase):
     
     def setUp(self):
+        self.url = "http://localhost:8000"
+        try:
+            response = requests.get(self.url)
+        except:
+            Server()
+            sleep(2)
         self.browser = Surf().browser
-        Server()
-        sleep(2)
 
     def test_site_is_up(self):
-        url = "http://localhost:8000"
-        response = requests.get(url)
+        response = requests.get(self.url)
         self.assertEqual(response.status_code, 200)
         assert 'Login' in response.content
 
     def test_site_content(self):
-        self.browser.load("http://localhost:8000")
+        self.browser.load(self.url)
         message = self.browser.locate("login id").text
         assert message == 'Login',  message
 
