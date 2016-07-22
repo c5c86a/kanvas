@@ -54,7 +54,7 @@ class Surf:
 class TestSite(unittest.TestCase):
     
     def setUp(self):
-        self.url = "http://localhost:8000"
+        self.url = "http://localhost:9000"
         try:
             response = requests.get(self.url)
         except:
