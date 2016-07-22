@@ -28,7 +28,7 @@ def start_django():
     django.setup()
     call_command('makemigrations')
     call_command('migrate')
-    call_command('runserver', use_reloader=False)
+    call_command('runserver', '0.0.0.0:9000', use_reloader=False)
 
 def singleton(cls):
     instances = {}
