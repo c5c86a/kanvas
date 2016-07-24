@@ -11,6 +11,8 @@ RUN apt-get update -qq && apt-get install -qqy \
 		python python-pip python2.7-dev python-imaging \
     `# phantomjs is a run-time dependency and its runtime dependencies are below (some of them might be compile-time dependencies)` \
     libfontconfig1-dev libfreetype6-dev libssl-dev libpng12-dev \
+    `# for provisioning` \
+    git keychain \
     	  --no-install-recommends && rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /site
