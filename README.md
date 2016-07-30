@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/nickmeet/kanvas.png?branch=master)](https://travis-ci.org/nickmeet/kanvas)
+[![Travis build status](https://travis-ci.org/doctor-said/kanvas.png?branch=master)](https://travis-ci.org/doctor-said/kanvas)
 
 #### Manual actions
 
