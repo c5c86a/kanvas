@@ -5,6 +5,6 @@ sorl-thumbnail==12.3
 Pillow==3.1.0
 
 # for testing
-requests==2.10.0
+requests==2.20.0
 selenium==2.53.5
 
